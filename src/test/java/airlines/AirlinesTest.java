@@ -9,16 +9,12 @@ import utils.JSonUtils;
 import java.io.IOException;
 import java.util.*;
 
-public class AirlinesTest {
+public class AirlinesTest extends AirlineAPIs{
 
     @Test
     public void createAirlines() throws IOException {
-        String env=System.getProperty("env")==null? "qa" : System.getProperty("env");
-        Map<String,String> data= JSonUtils.getJSonDataAsMap("airlines/"+env+"/airlineApiData.json");
-         String endPoint=data.get("createAirlineEndpoint");
-
-    Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap("2","XYZ","India","https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png", "From Sri Lanka","Katunayake, Sri Lanka","www.srilankaaairways.com","1992");
-    Response res= RestUtils.performPost(endPoint,payload, new HashMap<>());
+   Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap("3","XYZ","India","https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png", "From Sri Lanka","Katunayake, Sri Lanka","www.srilankaaairways.com","1992");
+    Response res= createAirline(payload);
         Assert.assertEquals(res.statusCode(),200);
 
     }
