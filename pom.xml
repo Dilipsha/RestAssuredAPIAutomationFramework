@@ -16,7 +16,20 @@
     <Jackson>2.17.2</Jackson>
     <GSon>2.10.1</GSon>
   </properties>
-
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.5.1</version>
+      <configuration>
+        <suiteXmlFiles>
+          <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
