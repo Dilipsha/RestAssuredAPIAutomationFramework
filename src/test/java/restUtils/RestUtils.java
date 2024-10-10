@@ -26,14 +26,15 @@ public class RestUtils {
         ExtentReportManager.logInfoDetails("Endpoint is " + queryableRequestSpecification.getBaseUri());
         ExtentReportManager.logInfoDetails("Method is " + queryableRequestSpecification.getMethod());
         ExtentReportManager.logInfoDetails("headers are " + queryableRequestSpecification.getHeaders().asList().toString());
-        ExtentReportManager.logInfoDetails("Request body is " + queryableRequestSpecification.getBody());
+        ExtentReportManager.logJson("Request body is ");
+        ExtentReportManager.logJson(queryableRequestSpecification.getBody());
     }
 
     private static void printResponseLogInReport(Response response){
         ExtentReportManager.logInfoDetails("Response Status is " + response.getStatusCode());
         ExtentReportManager.logInfoDetails("Response Header is " + response.getHeaders().asList().toString());
-        ExtentReportManager.logInfoDetails("Response Body is" + response.getBody());
-     //   ExtentReportManager.logInfoDetails("Request body is " + queryableRequestSpecification.getBody());
+        ExtentReportManager.logJson("Response Body is");
+        ExtentReportManager.logJson(response.getBody().prettyPrint());
 
     }
 
