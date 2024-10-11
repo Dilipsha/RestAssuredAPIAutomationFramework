@@ -13,7 +13,7 @@ public class AirlinesTest extends AirlineAPIs{
 
     @Test
     public void createAirlines() throws IOException {
-   Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap("11","XYZ","India","https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png", "From Sri Lanka","Katunayake, Sri Lanka","www.srilankaaairways.com","1992");
+   Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap();
     Response res= createAirline(payload);
         Assert.assertEquals(res.statusCode(),200);
 

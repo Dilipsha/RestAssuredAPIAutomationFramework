@@ -2,6 +2,7 @@ package restUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
 import io.restassured.specification.RequestSpecification;
@@ -25,14 +26,16 @@ public class RestUtils {
         QueryableRequestSpecification queryableRequestSpecification= SpecificationQuerier.query(requestSpecification);
         ExtentReportManager.logInfoDetails("Endpoint is " + queryableRequestSpecification.getBaseUri());
         ExtentReportManager.logInfoDetails("Method is " + queryableRequestSpecification.getMethod());
-        ExtentReportManager.logInfoDetails("headers are " + queryableRequestSpecification.getHeaders().asList().toString());
+        ExtentReportManager.logInfoDetails("headers are ");
+        ExtentReportManager.logHeaders(queryableRequestSpecification.getHeaders().asList());
         ExtentReportManager.logJson("Request body is ");
         ExtentReportManager.logJson(queryableRequestSpecification.getBody());
     }
 
     private static void printResponseLogInReport(Response response){
         ExtentReportManager.logInfoDetails("Response Status is " + response.getStatusCode());
-        ExtentReportManager.logInfoDetails("Response Header is " + response.getHeaders().asList().toString());
+        ExtentReportManager.logInfoDetails("Response Header is ");
+        ExtentReportManager.logHeaders(response.getHeaders().asList());
         ExtentReportManager.logJson("Response Body is");
         ExtentReportManager.logJson(response.getBody().prettyPrint());
 
