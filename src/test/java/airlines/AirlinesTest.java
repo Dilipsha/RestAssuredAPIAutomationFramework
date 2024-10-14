@@ -16,6 +16,5 @@ public class AirlinesTest extends AirlineAPIs{
    Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap();
     Response res= createAirline(payload);
         Assert.assertEquals(res.statusCode(),200);
-
     }
 }
