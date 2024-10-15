@@ -1,5 +1,6 @@
 package airlines;
 
+import airlines.pojo.Airline;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ public class AirlinesTest extends AirlineAPIs{
 
     @Test
     public void createAirlines() throws IOException {
-   Map<String,Object> payload=Payload.getCreateAirlinePayloadFromMap();
+    Airline payload=Payload.getCreateAirlinePayloadFromPojo();
     Response res= createAirline(payload);
         Assert.assertEquals(res.statusCode(),200);
     }
